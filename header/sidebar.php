@@ -8,12 +8,6 @@
                         </a>
                   </li>
                   <li class="nav-item">
-                        <a class="nav-link <?php if ($users) echo "active"; ?>" href="./users">
-                              <span data-feather="users"><?php if ($users) echo "(current)"; ?></span>
-                              Usuarios
-                        </a>
-                  </li>
-                  <li class="nav-item">
                         <a class="nav-link <?php if ($students) echo "active"; ?>" href="./students">
                               <span data-feather="book-open"><?php if ($students) echo "(current)"; ?></span>
                               Alumnos
@@ -40,28 +34,6 @@
                   </a>
             </h6>
             <ul class="nav flex-column mb-2">
-                  <h8 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                        <span>Usuario</span>
-
-                  </h8>
-                  <li class="nav-item">
-                        <a class="nav-link" href="#">
-                              <span data-feather="file-text"></span>
-                              Dar de alta usuario
-                        </a>
-                  </li>
-                  <li class="nav-item">
-                        <a class="nav-link" href="#">
-                              <span data-feather="file-text"></span>
-                              Modificar usuario
-                        </a>
-                  </li>
-                  <li class="nav-item">
-                        <a class="nav-link" href="#">
-                              <span data-feather="file-text"></span>
-                              Borrar usuario
-                        </a>
-                  </li>
                   <h8 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                         <span>Alumno</span>
                   </h8>
