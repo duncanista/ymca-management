@@ -99,37 +99,52 @@ CREATE TABLE socio_economic_study VALUES(
     totalIncome VARCHAR(20),
     totalOutcome VARCHAR(20),
     healthService VARCHAR(30),
-    vacations INT NOT NULL
+    vacations INT NOT NULL,
+
+    PRIMARY KEY (idStudy, idStudent),
+    FOREIGN KEY idStudent REFERENCES student(idStudent),
 );
 
 CREATE TABLE family_disabilities VALUES(
     idStudy INT NOT NULL,
     relationship CHAR(50),
     type CHAR(50),
-    name VARCHAR(50)
+    name VARCHAR(50),
+
+    PRIMARY KEY (idStudy)
+    FOREIGN KEY idStudy REFERENCES socio_economic_study(idStudy)
 );
 
 CREATE TABLE inscription VALUES(
     idStudent INT NOT NULL,
-    idProgram INT NOT NULL,
+    program INT NOT NULL,
     inscription DATE,
     departure DATE,
     group VARCHAR(20),
-    teacher INT NOT NULL
+    teacher INT NOT NULL,
+
+    PRIMARY KEY (idStudent, program)
+    FOREIGN KEY idStudent REFERENCES student(idStudent),
+    FOREIGN KEY program REFERENCES program(idProgram)
+    FOREIGN KEY teacher REFERENCES teacher(idTeacher)
 );
 
 CREATE TABLE teacher VALUES(
     idTeacher INT NOT NULL,
     name VARCHAR(100),
-    lastname VARCHAR(100)
+    lastname VARCHAR(100),
+
+    PRIMARY KEY idTeacher
 );
 
 CREATE TABLE program VALUES(
-    program INT NOT NULL,
+    idProgram INT NOT NULL,
     name VARCHAR(150),
     capacity INT NOT NULL,
     schedule VARCHAR(100),
-    cost INT
+    cost INT,
+
+    PRIMARY KEY idProgram
 );
 
 
