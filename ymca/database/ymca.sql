@@ -3,7 +3,6 @@
 CREATE DATABASE YMCA;
 USE YMCA;
 
-
 CREATE TABLE user VALUES(
     idUser INT NOT NULL,
     name VARCHAR(50),
@@ -17,7 +16,7 @@ CREATE TABLE user VALUES(
 CREATE TABLE status_user VALUES(
     idUser INT NOT NULL,
     status VARCHAR(50),
-    
+
 );
 
 CREATE TABLE tutor VALUES(
