@@ -1,0 +1,12 @@
+RewriteEngine On
+Options All -Indexes
+#ErrorDocument 404 /home
+#ErrorDocument 403 /home
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^home$ index.php [L,NC]
+RewriteRule ^users$ users.php [L,NC]
+RewriteRule ^students$ students.php [L,NC]
+RewriteRule ^socio-economic-study$ studies.php [L,NC]
