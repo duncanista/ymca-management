@@ -1,5 +1,31 @@
 <?php include "./header/head.php"; ?>
 <?php include "./header/navbar.php"; ?>
+<?php require_once 'classes/Database.php'; ?>
+<?php require_once 'classes/Student.php'; ?>
+<?php
+
+  if($_SERVER["REQUEST_METHOD"] == 'POST'){
+    $name = "'".$_POST['name']."'";
+    $lastname = "'".$_POST['lastname']."'";
+    $birthdate = "'".$_POST['birthdate']."'";
+    $birthplace = "'".$_POST['birthplace']."'";
+    $curp = "'".$_POST['curp']."'";
+    $table = "student";
+
+    if(isset($_POST['id'])){
+      // UPDATE
+      $id = $_POST['id'];
+      $student = new Student();
+      $values = array($name, $lastname, $birthdate, $birthplace, $curp);
+      $fields = array("name", "lastname", "birthdate", "birthplace", "curp", "address");
+      update($fields, $values, $table,"idStudent", $id);
+    }
+    else{
+      // INSERT
+    }
+  }
+ ?>
+
 <div class="container-fluid">
       <div class="row">
             <?php $students = true; ?>
@@ -9,101 +35,88 @@
                         <h2 class="title">ALUMNOS</h2>
                         <div class="btn-toolbar mb-2 mb-md-0">
                               <div class="btn-group mr-2">
-                                    <button class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#addModal">Dar de alta</button>
-                                    <button class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#addModal"><span data-feather="plus-circle"></span></button>
+                                    <button class="btn btn-sm btn-outline-secondary" data-toggle='modal' data-target='#addModal'>Dar de alta</button>
+
+                                    <button class="btn btn-sm btn-outline-secondary"><span data-feather="plus-circle"></span></button>
                               </div>
                         </div>
                   </div>
+                  <?php echo "<!-- Add -->
+                  <div class='modal fade' id='addModal' tabindex='-1' role='dialog' aria-labelledby='modifyModal' aria-hidden='true'>
+                        <div class='modal-dialog modal-dialog-scrollable' role='document'>
+                              <div class='modal-content'>
+                                    <div class='modal-header'>
+                                          <h5 class='modal-title' id='exampleModalScrollableTitle'>Agregar alumno </h5>
+                                          <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                                <span aria-hidden='true'>&times;</span>
+                                          </button>
+                                    </div>
+                                    <div class='modal-body'>
+                                    <form class='' action='' method='post'>
+                                    <label for='basic-url'>Nombre</label>
+                                    <div class='input-group mb-3'>
+                                          <input type='text' class='form-control'  aria-describedby='basic-addon3' value=''>
+                                    </div>
+                                    <label for='basic-url'>Apellidos</label>
+                                    <div class='input-group mb-3'>
+                                          <input type='text' class='form-control'  aria-describedby='basic-addon3' value=''>
+                                    </div>
+                                    <label for='basic-url'>Fecha de Nacimiento</label>
+                                    <div class='input-group mb-3'>
+                                          <input type='date' class='form-control'  aria-describedby='basic-addon3' value=''>
+                                    </div>
+                                    <label for='basic-url'>Lugar de Nacimiento</label>
+                                    <div class='input-group mb-3'>
+                                          <input type='text' class='form-control'  aria-describedby='basic-addon3' value=''>
+                                    </div>
+                                    <label for='basic-url'>CURP</label>
+                                    <div class='input-group mb-3'>
+                                          <input type='text' class='form-control'  aria-describedby='basic-addon3' value=''>
+                                    </div>
+                                    <label for='basic-url'>Puesto</label>
+                                    <div class='input-group mb-3'>
+                                          <div class='input-group-prepend'>
+                                                <label class='input-group-text' for='inputGroupSelect01'>Trabajo</label>
+                                          </div>
+                                          <select class='custom-select' id='inputGroupSelect01'>
+                                                <option selected>Escoja...</option>
+                                                <option value='1'>Trabajador</option>
+                                                <option value='2'>No trabaja</option>
+                                                <option value='3'>Quizá trabaja</option>
+                                          </select>
+                                    </div>
+                              </div>
+                              <div class='modal-footer'>
+                                    <button type='button' class='btn btn-secondary btn-sm' data-dismiss='modal'>Cerrar</button>
+                                    <input type='submit' class= 'btn btn-principal btn-sm' name='' value='Guardar Cambios'>
+                              </div>
+                                    </form>
+
+                              </div>
+                        </div>
+                  </div>"; ?>
                   <div class="table-responsive">
                         <table class="table table-striped table-sm">
                               <thead>
                                     <tr>
                                           <th>ID</th>
                                           <th>Nombre</th>
-                                          <th>Inscripción</th>
-                                          <th>Edad</th>
+                                          <th>Apellido</th>
+                                          <th>Fecha de Nacimiento</th>
+                                          <th>Lugar de Nacimiento</th>
+                                          <th>CURP</th>
                                           <th>Acciones</th>
                                     </tr>
                               </thead>
                               <tbody>
-                                    <?php
-                                    $users = array("1"=>array("name"=>"Joaquín Rios", "job"=>"Tardía", "age"=>"9"),
-                                    "2"=>array("name"=>"Luis Alcantara", "job"=>"Tardía", "age"=>"9"),
-                                    "3"=>array("name"=>"Pepito Muñoz", "job"=>"Tardía", "age"=>"9"),
-                                    "4"=>array("name"=>"Elsa Patito", "job"=>"A tiempo", "age"=>"9"));
-                                    foreach ($users as $id => $data):
-                                          ?>
-                                          <tr>
-                                                <td><?php echo $id; ?></td>
-                                                <td><?php echo $data["name"]; ?></td>
-                                                <td><?php echo $data["job"]; ?></td>
-                                                <td><?php echo $data["age"]; ?></td>
-                                                <td>
-                                                      <a href="#" class="badge badge-warning" data-toggle="modal" data-target="#modifyModal<?php echo $id;?>">Modificar</a>
-                                                      <a href="#" class="badge badge-danger" data-toggle="modal" data-target="#deleteModal<?php echo $id;?>">Borrar</a>
 
-                                                      <!-- Modify -->
-                                                      <div class="modal fade" id="modifyModal<?php echo $id;?>" tabindex="-1" role="dialog" aria-labelledby="modifyModal<?php echo $id;?>" aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                                                  <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                              <h5 class="modal-title" id="exampleModalScrollableTitle">Modificar usuario - <?php echo $id;?></h5>
-                                                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                    <span aria-hidden="true">&times;</span>
-                                                                              </button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                              <label for="basic-url">Nombre</label>
-                                                                              <div class="input-group mb-3">
-                                                                                    <input type="text" class="form-control"  aria-describedby="basic-addon3" value="<?php echo $data["name"]; ?>">
-                                                                              </div>
-                                                                              <label for="basic-url">Puesto</label>
-                                                                              <div class="input-group mb-3">
-                                                                                    <div class="input-group-prepend">
-                                                                                          <label class="input-group-text" for="inputGroupSelect01">Trabajo</label>
-                                                                                    </div>
-                                                                                    <select class="custom-select" id="inputGroupSelect01">
-                                                                                          <option selected>Escoja...</option>
-                                                                                          <option value="1">Trabajador</option>
-                                                                                          <option value="2">No trabaja</option>
-                                                                                          <option value="3">Quizá trabaja</option>
-                                                                                    </select>
-                                                                              </div>
-                                                                              <label for="basic-url">Edad</label>
-                                                                              <div class="input-group mb-3">
-                                                                                    <input type="text" class="form-control" aria-describedby="basic-addon3" value="<?php echo $data["age"]; ?>">
-                                                                              </div>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                              <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
-                                                                              <button type="button" class="btn btn-primary btn-sm">Guardar cambios</button>
-                                                                        </div>
-                                                                  </div>
-                                                            </div>
-                                                      </div>
-                                                      <!-- Delete-->
-                                                      <div class="modal fade" id="deleteModal<?php echo $id;?>" tabindex="-1" role="dialog" aria-labelledby="deleteModal<?php echo $id;?>" aria-hidden="true">
-                                                            <div class="modal-dialog" role="document">
-                                                                  <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                              <h5 class="modal-title" id="exampleModalLabel">Borrar aluno - <?php echo $id;?></h5>
-                                                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                    <span aria-hidden="true">&times;</span>
-                                                                              </button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                              ¿Estás seguro que quieres borrar este alumno?
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                              <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cambio de planes</button>
-                                                                              <button type="button" class="btn btn-danger btn-sm">Borrar alumno</button>
-                                                                        </div>
-                                                                  </div>
-                                                            </div>
-                                                      </div>
-                                                </td>
-                                          </tr>
-                                    <?php endforeach; ?>
+                                  <?php
+                                    $students = new Student();
+                                    $result = selectAll("student");
+                                    $students->displayAllStudents($result);
+                                  ?>
+
+
                               </tbody>
                         </table>
 
@@ -154,7 +167,12 @@
                               </div>
                         </div>
                   </div>
-                  </main>
+                </main>
+            </div>
+            <div class="row">
+
             </div>
       </div>
+
+
       <?php include "./footer/foot.php"; ?>
