@@ -38,7 +38,7 @@
                         <span>Alumno</span>
                   </h8>
                   <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#addModal">
                               <span data-feather="file-text"></span>
                               Dar de alta alumno
                         </a>
@@ -78,5 +78,7 @@
                   </li>
             </ul>
 
+            
       </div>
+     
 </nav>
