@@ -54,7 +54,8 @@ function selectStudents(){
     INNER JOIN address AS a ON a.idStudent = s.idStudent
     INNER JOIN states AS e ON e.idState = a.state
     INNER JOIN status_student AS u ON u.idStudent = s.idStudent
-    INNER JOIN status_types AS t ON t.idStatus = u.studentStatus";
+    INNER JOIN status_types AS t ON t.idStatus = u.studentStatus
+    ORDER BY s.idStudent";
     return $conn->query($sql);
 }
 

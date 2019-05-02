@@ -28,7 +28,7 @@
             <tbody>
                 <?php
                     $students = new Student();
-                    $result = selectAll("student");
+                    $result = selectStudents();
                     $students->displayAllStudents($result);
                 ?>
             </tbody>

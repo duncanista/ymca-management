@@ -40,7 +40,7 @@
                 </div>
                 <label for="basic-url">CURP</label>
                 <div class="input-group mb-3">
-                    <input type="text" name="student_curp" class="form-control" aria-describedby="basic-addon3" placeholder="Ej. GOBJ990409HDFNSR06" required>
+                    <input type="text" name="student_curp" class="form-control" aria-describedby="basic-addon3" placeholder="Ej. GOBJ990409HDFNSR06" maxlength="18" required>
                 </div>
             </div>
 
@@ -72,7 +72,7 @@
                 <h4>&nbsp;</h4>
                 <label for="basic-url">Código Postal</label>
                 <div class="input-group mb-3">
-                    <input type="text" name="student_zipcode" class="form-control" aria-describedby="basic-addon3" placeholder="Ej. 06300" required>
+                    <input type="text" name="student_zipcode" class="form-control" aria-describedby="basic-addon3" placeholder="Ej. 06300" maxlength="5" required>
                 </div>
                 <label for="basic-url">Referencias</label>
                 <div class="input-group mb-3">
