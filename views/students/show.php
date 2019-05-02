@@ -21,7 +21,6 @@
                     <th>Fecha de Nacimiento</th>
                     <th>Lugar de Nacimiento</th>
                     <th>CURP</th>
-                    <th>Status</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -29,7 +28,7 @@
             <tbody>
                 <?php
                     $students = new Student();
-                    $result = selectStudents();
+                    $result = selectAll("student");
                     $students->displayAllStudents($result);
                 ?>
             </tbody>

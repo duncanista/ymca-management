@@ -9,6 +9,16 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     $birthdate = "'" . $_POST['student_date'] . "'";
     $birthplace = "'" . $_POST['student_birth'] . "'";
     $curp = "'" . $_POST['student_curp'] . "'";
+
+    $street = "'" . $_POST['student_street'] . "'";
+    $city = "'" . $_POST['student_city'] . "'";
+    $state = "'" . $_POST['student_state'] . "'";
+    $zipcode = "'" . $_POST['student_zipcode'] . "'";
+    $refs = "'" . $_POST['student_refs'] . "'";
+    $phone = "'" . $_POST['student_phone'] . "'";
+
+    
+
     $table = "student";
     $values = array($name, $lastname, $birthdate, $birthplace, $curp);
     $fields = array("name", "lastname", "birthdate", "birthplace", "curp");
@@ -20,6 +30,14 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     } else {
         // INSERT
         insert($fields, $values, $table);
+
+        $address_table = "address";
+        $address_values = array($id, $street, $city, $state, $zipcode, $refs, $phone);
+        $address_fields = array("idStudent", "street", "city", "state", "zipcode", "references", "phone");
+
+        $status_table = "status_student";
+        $status_values = array($id, "1", "2019-12-01");
+        $status_fields = array("idStudent", "studentStatus", "limitDate");
     }
 }else{
     //

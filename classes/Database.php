@@ -39,6 +39,14 @@ function select($fields, $table){
     $sql = "SELECT $sqlFields FROM $table";
     return $conn->query($sql);
 }
+
+function selectByFielf($table, $field, $value){
+    global $conn;
+    $sqlFields = formatParams($fields);
+    $sql = "SELECT * FROM $table WHERE $field='$value'";
+    return $conn->query($sql);
+}
+
 function selectStudents(){
     global $conn;
     $sql = "SELECT s.idStudent, s.name, s.lastname, s.birthdate, s.curp, e.name AS birthplace, t.name AS status
@@ -60,6 +68,7 @@ function insert($fields, $values, $table)
     $sql = "INSERT INTO $table ($sqlFields) VALUES($sqlValues)";
     if($result = $conn->query($sql)){
       echo "Éxito";
+      $student_id =  $result->insert_id;
       return $result;
     }
     else {
