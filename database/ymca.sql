@@ -5,7 +5,7 @@ USE YMCA;
 
 
 CREATE TABLE student(
-    idStudent INT NOT NULL,
+    idStudent INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(50),
     lastname VARCHAR(100),
     birthdate DATE,
