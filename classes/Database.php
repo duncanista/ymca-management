@@ -67,9 +67,9 @@ function insert($fields, $values, $table)
 
     $sql = "INSERT INTO $table ($sqlFields) VALUES($sqlValues)";
     if($result = $conn->query($sql)){
-      echo "Éxito";
-      $student_id =  $result->insert_id;
-      return $result;
+        $id =  $conn->insert_id;
+
+        return $id;
     }
     else {
       http_response_code(400);

@@ -29,15 +29,16 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
         update($fields, $values, $table, "idStudent", $id);
     } else {
         // INSERT
-        insert($fields, $values, $table);
+        $id = insert($fields, $values, $table);
 
         $address_table = "address";
         $address_values = array($id, $street, $city, $state, $zipcode, $refs, $phone);
-        $address_fields = array("idStudent", "street", "city", "state", "zipcode", "references", "phone");
-
+        $address_fields = array("idStudent", "street", "city", "state", "zipcode", "reference", "contact");
+        insert($address_fields, $address_values, $address_table);
         $status_table = "status_student";
-        $status_values = array($id, "1", "2019-12-01");
+        $status_values = array($id, "1", "'2019-12-01'");
         $status_fields = array("idStudent", "studentStatus", "limitDate");
+        insert($status_fields, $status_values, $status_table);
     }
 }else{
     //
