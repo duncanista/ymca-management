@@ -74,3 +74,4 @@ function delete($table, $idField, $id){
     $sql = "DELETE FROM $table WHERE $idField=$id";
     return $conn->query($sql);
 }
+?>

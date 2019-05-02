@@ -4,8 +4,7 @@
         <h2 class="title">Alumnos registrados.</h2>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group mr-2">
-                <button class="btn btn-sm btn-outline-secondary" data-toggle='modal' data-target='#addModal'>Dar
-                    de alta</button>
+                <a class="btn btn-sm btn-outline-secondary" href="<?=$url?>/students/add">Dar de alta</a>
 
                 <button class="btn btn-sm btn-outline-secondary"><span data-feather="plus-circle"></span></button>
             </div>

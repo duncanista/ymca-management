@@ -9,9 +9,11 @@ CREATE TABLE student(
     name VARCHAR(50),
     lastname VARCHAR(100),
     birthdate DATE,
+    birthplace CHAR(3),
     curp VARCHAR(18),
 
-    PRIMARY KEY (idStudent)
+    PRIMARY KEY (idStudent),
+    FOREIGN KEY (birthplace) REFERENCES states(idState)
 );
 
 CREATE TABLE teacher(
