@@ -3,6 +3,12 @@
 CREATE DATABASE YMCA;
 USE YMCA;
 
+CREATE TABLE states(
+    idState CHAR(3),
+    name VARCHAR(50),
+
+    PRIMARY KEY (idState)
+);
 
 CREATE TABLE student(
     idStudent INT NOT NULL AUTO_INCREMENT,
@@ -40,12 +46,7 @@ CREATE TABLE status_types(
     PRIMARY KEY (idStatus)
 );
 
-CREATE TABLE states(
-    idState CHAR(3),
-    name VARCHAR(50),
 
-    PRIMARY KEY (idState)
-);
 
 CREATE TABLE tutor(
     curp VARCHAR(18),
