@@ -57,45 +57,71 @@ class Student{
                               </div>
                               <div class='modal-body'>
                                     <form class='' action='' method='post'>
-                                    <input name='id' type='hidden' class='form-control' aria-describedby='basic-addon3' value='$id'>
-
-                                    <label for='basic-url'>Nombre</label>
-                                    <div class='input-group mb-3'>
-                                          <input name='name' type='text' class='form-control' aria-describedby='basic-addon3'
-                                                value='$name'>
-                                    </div>
-                                    <label for='basic-url'>Apellidos</label>
-                                    <div class='input-group mb-3'>
-                                          <input name='lastname' type='text' class='form-control' aria-describedby='basic-addon3'
-                                                value='$lastname'>
-                                    </div>
-                                    <label for='basic-url'>Fecha de Nacimiento</label>
-                                    <div class='input-group mb-3'>
-                                          <input name='birthdate' type='date' class='form-control' aria-describedby='basic-addon3'
-                                                value='$birthdate'>
-                                    </div>
-                                    <label for='basic-url'>Lugar de Nacimiento</label>
-                                    <div class='input-group mb-3'>
-                                          <input name='birthplace' type='text' class='form-control' aria-describedby='basic-addon3'
-                                                value='$birthplace'>
-                                    </div>
-                                    <label for='basic-url'>CURP</label>
-                                    <div class='input-group mb-3'>
-                                          <input name='curp' type='text' class='form-control' aria-describedby='basic-addon3'
-                                                value='$curp'>
-                                    </div>
-                                    <label for='basic-url'>Puesto</label>
-                                    <div class='input-group mb-3'>
-                                          <div class='input-group-prepend'>
-                                                <label class='input-group-text' for='inputGroupSelect01'>Trabajo</label>
+                                          <h4>Información personal</h4>
+                                          <label for='basic-url'>Nombre</label>
+                                          <div class='input-group mb-3'>
+                                                <input type='text' name='student_name' class='form-control' aria-describedby='basic-addon3' placeholder='ej. Roberto' required>
                                           </div>
-                                          <select class='custom-select' id='inputGroupSelect01'>
-                                                <option selected>Escoja...</option>
-                                                <option value='1'>Trabajador</option>
-                                                <option value='2'>No trabaja</option>
-                                                <option value='3'>Quizá trabaja</option>
-                                          </select>
-                                    </div>
+                                          <label for='basic-url'>Apellido</label>
+                                          <div class='input-group mb-3'>
+                                                <input type='text' name='student_lastname' class='form-control' aria-describedby='basic-addon3' placeholder='ej. Téllez' required>
+                                          </div>
+                                          <label for='basic-url'>Fecha de Nacimiento</label>
+                                          <div class='input-group mb-3'>
+                                                <input type='date' name='student_date' class='form-control'  aria-describedby='basic-addon3' value='' required>
+                                          </div>
+                                          <label for='basic-url'>Lugar de Nacimiento</label>
+                                          <div class='input-group mb-3'>
+                                                <div class='input-group-prepend'>
+                                                      <label class='input-group-text' for='inputGroupSelect01'>Estado</label>
+                                                </div>
+                                                <select class='custom-select' name='student_birth'  id='inputGroupSelect01' required>
+                                                      <option selected>Escoja...</option>
+                                                      <option value='MEX'>Estado de México</option>
+                                                      <option value='CMX'>Ciudad de México</option>
+                                                      <option value='MOR'>Morelos</option>
+                                                      <option value='XXX'>Otro...</option>
+                                                </select>
+                                          </div>
+                                          <label for='basic-url'>CURP</label>
+                                          <div class='input-group mb-3'>
+                                                <input type='text' name='student_curp' class='form-control' aria-describedby='basic-addon3' placeholder='Ej. GOBJ990409HDFNSR06' maxlength='18' required>
+                                          </div>
+                                          <h4>Dirección</h4>
+                                          <label for='basic-url'>Calle y número</label>
+                                          <div class='input-group mb-3'>
+                                                <input type='text' name='student_street' class='form-control' aria-describedby='basic-addon3' placeholder='ej. Av. Satélite 138' required>
+                                          </div>
+                                          <label for='basic-url'>Municipio / Alcaldía / Delegación</label>
+                                          <div class='input-group mb-3'>
+                                                <input type='text' name='student_city' class='form-control' aria-describedby='basic-addon3' placeholder='ej. Naucalpan de Juárez' required>
+                                          </div>
+                                          <label for='basic-url'>Estado</label>
+                                          <div class='input-group mb-3'>
+                                                <div class='input-group-prepend'>
+                                                      <label class='input-group-text' for='inputGroupSelect01'>Estado</label>
+                                                </div>
+                                                <select class='custom-select' name='student_state'  id='inputGroupSelect01' required>
+                                                      <option selected>Escoja...</option>
+                                                      <option value='MEX'>Estado de México</option>
+                                                      <option value='CMX'>Ciudad de México</option>
+                                                      <option value='MOR'>Morelos</option>
+                                                      <option value='XXX'>Otro...</option>
+                                                </select>
+                                          </div>
+                                          <label for='basic-url'>Código Postal</label>
+                                          <div class='input-group mb-3'>
+                                                <input type='text' name='student_zipcode' class='form-control' aria-describedby='basic-addon3' placeholder='Ej. 06300' maxlength='5' required>
+                                          </div>
+                                          <label for='basic-url'>Referencias</label>
+                                          <div class='input-group mb-3'>
+                                                <input type='text' name='student_refs' class='form-control' aria-describedby='basic-addon3' placeholder='Ej. Puerta azul' required>
+                                          </div>
+                                          <label for='basic-url'>Teléfono de contacto</label>
+                                          <div class='input-group mb-3'>
+                                                <input type='text' name='student_phone' class='form-control' aria-describedby='basic-addon3' placeholder='Ej. (55) 6709 2381' required>
+                                          </div>
+                                    
                               </div>
                               <div class='modal-footer'>
                                     <button type='button' class='btn btn-secondary btn-sm' data-dismiss='modal'>Cerrar</button>
