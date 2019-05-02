@@ -1,5 +1,7 @@
 <?php
-require_once "../classes/Database.php";
+$path = dirname(dirname(__FILE__));
+$con = "/classes/Database.php";
+require_once($path . $con);
 
 if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     echo "it entered";
@@ -22,5 +24,5 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
         echo json_encode(array("success" => "no, sos"));
     }
 }else{
-    echo "sall good";
+    //
 }

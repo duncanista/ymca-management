@@ -1,5 +1,8 @@
 <?php
-require_once 'config/config.php';
+$path = dirname(dirname(__FILE__));
+$con = "/config/config.php";
+require_once($path . $con);
+
 
 $conn = new mysqli($servername, $username, $password, $database);
 
