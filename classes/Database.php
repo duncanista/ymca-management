@@ -39,11 +39,19 @@ function select($fields, $table){
     $sql = "SELECT $sqlFields FROM $table";
     return $conn->query($sql);
 }
+
+function selectByFielf($table, $field, $value){
+    global $conn;
+    $sqlFields = formatParams($fields);
+    $sql = "SELECT * FROM $table WHERE $field='$value'";
+    return $conn->query($sql);
+}
+
 function selectStudents(){
     global $conn;
     $sql = "SELECT s.idStudent, s.name, s.lastname, s.birthdate, s.curp, e.name AS birthplace, t.name AS status
-    FROM student AS s 
-    INNER JOIN address AS a ON a.idStudent = s.idStudent 
+    FROM student AS s
+    INNER JOIN address AS a ON a.idStudent = s.idStudent
     INNER JOIN states AS e ON e.idState = a.state
     INNER JOIN status_student AS u ON u.idStudent = s.idStudent
     INNER JOIN status_types AS t ON t.idStatus = u.studentStatus";
@@ -58,18 +66,32 @@ function insert($fields, $values, $table)
     $sqlValues = formatParams($values);
 
     $sql = "INSERT INTO $table ($sqlFields) VALUES($sqlValues)";
-    return $conn->query($sql);
+    if($result = $conn->query($sql)){
+      echo "Éxito";
+      $student_id =  $result->insert_id;
+      return $result;
+    }
+    else {
+      http_response_code(400);
+    }
 }
 
 function update($fields, $values, $table, $idField, $id){
     global $conn;
     $params = "";
-    for ($i = 0 ;$i < count($fields)-1; $i++) {
+    for ($i = 0 ;$i < count($fields)-2; $i++) {
         $params .= $fields[$i]."=".$values[$i].",";
     }
-    echo "llegué";
+    $params .= $fields[$i]."=".$values[$i];
     $sql = "UPDATE $table SET $params WHERE $idField=$id";
-    return $conn->query($sql);
+    echo $sql;
+    if($result = $conn->query($sql)){
+      echo "Éxito";
+      return $result;
+    }
+    else {
+      http_response_code(400);
+    }
 }
 
 function delete($table, $idField, $id){

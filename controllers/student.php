@@ -4,7 +4,6 @@ $con = "/classes/Database.php";
 require_once($path . $con);
 
 if ($_SERVER["REQUEST_METHOD"] == 'POST') {
-    echo "it entered";
     $name = "'" . $_POST['student_name'] . "'";
     $lastname = "'" . $_POST['student_lastname'] . "'";
     $birthdate = "'" . $_POST['student_date'] . "'";
@@ -21,8 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     } else {
         // INSERT
         insert($fields, $values, $table);
-        echo json_encode(array("success" => "no, sos"));
     }
 }else{
     //
 }
+?>
