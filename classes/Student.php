@@ -12,7 +12,26 @@ class Student{
         while ($row = $result->fetch_assoc()) {
             echo  "<tr>";
             for ($i = 0; $i < count($fields); $i++) {
-                echo "<td>" . $row[$fields[$i]]. "</td>";
+                  if($fields[$i] != "status"){
+                        echo "<td>" . $row[$fields[$i]]. "</td>";
+                  }else{
+                        $status = $row[$fields[$i]];
+                        $class = "info";
+                        switch ($status):
+                              case "Registrado":
+                                    $class = "success";
+                              break;
+                              case "Baja temporal":
+                                    $class = "warning";
+                              break;
+                              case "Baja definitiva":
+                                    $class = "danger";
+                              break;
+                              default:
+                              break;
+                        endswitch;
+                        echo "<td><span class='badge badge-".$class."'>".$status."</span></td>";
+                  }
             }
             $id = $row["idStudent"];
             $name = $row["name"];
@@ -20,10 +39,13 @@ class Student{
             $birthdate = $row["birthdate"];
             $birthplace = $row["birthplace"];
             $curp = $row["curp"];
+            $status = $row["status"];
             echo "
             <td>
+                  
                   <a href='#' class='badge badge-warning' data-toggle='modal' data-target='#modifyModal$id'>Modificar</a>
                   <a href='#' class='badge badge-danger' data-toggle='modal' data-target='#deleteModal$id'>Borrar</a>
+            </td>
                   <!-- Modify -->
                   <div class='modal fade' id='modifyModal$id' tabindex='-1' role='dialog' aria-labelledby='modifyModal$id'
                         aria-hidden='true'>

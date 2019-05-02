@@ -10,7 +10,6 @@ CREATE TABLE student(
     lastname VARCHAR(100),
     birthdate DATE,
     curp VARCHAR(18),
-    address INT NOT NULL,
 
     PRIMARY KEY (idStudent)
 );
