@@ -19,8 +19,8 @@
                     <th>Nombre</th>
                     <th>Apellidos</th>
                     <th>Fecha de Nacimiento</th>
-                    <th>Lugar de Nacimiento</th>
                     <th>CURP</th>
+                    <th>Lugar de Nacimiento</th>
                     <th>Status</th>
                     <th>Acciones</th>
                 </tr>
@@ -87,3 +87,27 @@
         </div>
     </div>
 </main>
+
+<script>
+$("input[required], select[required]").attr("oninvalid", "this.setCustomValidity('Por favor, llena este campo.')");
+$("input[required], select[required]").attr("oninput", "setCustomValidity('')");
+$('.update_form').submit(function (event) {
+    event.preventDefault();
+    var form = $(this);
+    var data = form.serializeArray();
+
+    $.ajax({
+        type: "POST",
+        url: "http://localhost:8888/ymca-management/controllers/student.php",
+        data: data,
+        success: function (response) {
+            location.reload();
+        },
+        error: function(response) {
+            alert("Ha ocurrido un problema.");
+        }
+        
+    });
+});
+
+</script>

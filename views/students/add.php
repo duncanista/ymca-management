@@ -92,7 +92,7 @@
 <script>
 $("input[required], select[required]").attr("oninvalid", "this.setCustomValidity('Por favor, llena este campo.')");
 $("input[required], select[required]").attr("oninput", "setCustomValidity('')");
-$('#add').click(function () {
+$('#add').click(function (event) {
     event.preventDefault();
     var form = $('#student_add');
     var data = form.serializeArray();
@@ -102,10 +102,10 @@ $('#add').click(function () {
         url: "http://localhost:8888/ymca-management/controllers/student.php",
         data: data,
         success: function (response) {
-            alert("we got the data");
+            location.reload();
         },
         error: function(response) {
-            alert("no data fam");
+            alert("Ha ocurrido un problema");
         }
         
     });

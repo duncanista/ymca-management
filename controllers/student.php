@@ -17,27 +17,36 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     $refs = "'" . $_POST['student_refs'] . "'";
     $phone = "'" . $_POST['student_phone'] . "'";
 
-    
 
     $table = "student";
     $values = array($name, $lastname, $birthdate, $birthplace, $curp);
     $fields = array("name", "lastname", "birthdate", "birthplace", "curp");
 
+    $address_table = "address";
+    $address_fields = array("idStudent", "street", "city", "state", "zipcode", "reference", "contact");
+
+    $status_table = "status_student";
+    $status_fields = array("idStudent", "studentStatus", "limitDate");
+
     if (isset($_POST['id'])) {
         // UPDATE
         $id = $_POST['id'];
+        $status = $_POST["student_status"];
+        $address_values = array($id, $street, $city, $state, $zipcode, $refs, $phone);
+        $status_values = array($id, $status, "NOW()");
         update($fields, $values, $table, "idStudent", $id);
+        update($address_fields, $address_values, $address_table, "idStudent", $id);
+        update($status_fields, $status_values, $status_table, "idStudent", $id);
+        
     } else {
         // INSERT
         $id = insert($fields, $values, $table);
 
-        $address_table = "address";
+        
         $address_values = array($id, $street, $city, $state, $zipcode, $refs, $phone);
-        $address_fields = array("idStudent", "street", "city", "state", "zipcode", "reference", "contact");
         insert($address_fields, $address_values, $address_table);
-        $status_table = "status_student";
+        
         $status_values = array($id, "1", "'2019-12-01'");
-        $status_fields = array("idStudent", "studentStatus", "limitDate");
         insert($status_fields, $status_values, $status_table);
     }
 }else{

@@ -49,7 +49,7 @@ function selectByFielf($table, $field, $value){
 
 function selectStudents(){
     global $conn;
-    $sql = "SELECT s.idStudent, s.name, s.lastname, s.birthdate, s.curp, e.name AS birthplace, t.name AS status
+    $sql = "SELECT s.idStudent, s.name, s.lastname, s.birthdate, s.curp, e.name AS birthplace, t.name AS status, e.idState, a.street, a.city, a.state, a.zipcode, a.reference, a.contact
     FROM student AS s
     INNER JOIN address AS a ON a.idStudent = s.idStudent
     INNER JOIN states AS e ON e.idState = a.state
