@@ -1,5 +1,5 @@
 <?php
-require_once('../classes/Database.php');
+require_once "../classes/Database.php";
 
 if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     echo "it entered";
@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     $curp = "'" . $_POST['student_curp'] . "'";
     $table = "student";
     $values = array($name, $lastname, $birthdate, $birthplace, $curp);
-    $fields = array("name", "lastname", "birthdate", "birthplace", "curp", "address");
+    $fields = array("name", "lastname", "birthdate", "birthplace", "curp");
 
     if (isset($_POST['id'])) {
         // UPDATE
