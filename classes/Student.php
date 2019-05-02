@@ -8,7 +8,7 @@ class Student{
     }
 
     public function displayAllStudents($result){
-        $fields = array("idStudent", "name", "lastname", "birthdate", "curp", "birthplace");
+        $fields = array("idStudent", "name", "lastname", "birthdate", "curp", "birthplace", "status");
         while ($row = $result->fetch_assoc()) {
             echo  "<tr>";
             for ($i = 0; $i < count($fields); $i++) {
@@ -30,6 +30,8 @@ class Student{
                               default:
                               break;
                         endswitch;
+
+                        echo "<td><span class='badge badge-".$class."'>".$status."</span></td>";
                   }
             }
             $id = $row["idStudent"];

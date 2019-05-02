@@ -21,6 +21,7 @@
                     <th>Fecha de Nacimiento</th>
                     <th>Lugar de Nacimiento</th>
                     <th>CURP</th>
+                    <th>Status</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
