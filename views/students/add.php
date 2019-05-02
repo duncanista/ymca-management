@@ -10,7 +10,8 @@
     </div>
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
+            <h4>Información personal</h4>
             <label for="basic-url">Nombre</label>
             <div class="input-group mb-3">
                 <input type="text" class="form-control" aria-describedby="basic-addon3" placeholder="ej. Roberto">
@@ -20,20 +21,8 @@
                 <input type="text" class="form-control" aria-describedby="basic-addon3" placeholder="ej. Téllez">
             </div>
             <label for="basic-url">Fecha de Nacimiento</label>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" aria-describedby="basic-addon3" placeholder="ej. 1999-04-09">
-            </div>
-            <label for="basic-url">Lugar de Nacimiento</label>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">Ciudad</label>
-                </div>
-                <select class="custom-select" id="inputGroupSelect01">
-                    <option selected>Escoja...</option>
-                    <option value="1">Estado de México</option>
-                    <option value="2">Ciudad de México</option>
-                    <option value="3">Otro...</option>
-                </select>
+            <div class='input-group mb-3'>
+                <input type='date' class='form-control'  aria-describedby='basic-addon3' value=''>
             </div>
             <label for="basic-url">CURP</label>
             <div class="input-group mb-3">
@@ -41,35 +30,48 @@
             </div>
         </div>
 
-        <div class="col-md-4 offset-1">
-        <label for="basic-url">Nombre</label>
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" aria-describedby="basic-addon3" placeholder="ej. Roberto">
-        </div>
-        <label for="basic-url">Apellido</label>
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" aria-describedby="basic-addon3" placeholder="ej. Téllez">
-        </div>
-        <label for="basic-url">Fecha de Nacimiento</label>
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" aria-describedby="basic-addon3" placeholder="ej. 1999-04-09">
-        </div>
-        <label for="basic-url">Lugar de Nacimiento</label>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <label class="input-group-text" for="inputGroupSelect01">Ciudad</label>
+        <div class="col-md-3 offset-1">
+            <h4>Dirección</h4>
+            <label for="basic-url">Calle y número</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" aria-describedby="basic-addon3" placeholder="ej. Av. Satélite 138">
             </div>
-            <select class="custom-select" id="inputGroupSelect01">
-                <option selected>Escoja...</option>
-                <option value="1">Estado de México</option>
-                <option value="2">Ciudad de México</option>
-                <option value="3">Otro...</option>
-            </select>
+            <label for="basic-url">Municipio / Alcaldía / Delegación</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" aria-describedby="basic-addon3" placeholder="ej. Naucalpan de Juárez">
+            </div>
+            <label for="basic-url">Fecha de Nacimiento</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" aria-describedby="basic-addon3" placeholder="ej. 1999-04-09">
+            </div>
+            <label for="basic-url">Lugar de Nacimiento</label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Estado</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>Escoja...</option>
+                    <option value="MEX">Estado de México</option>
+                    <option value="CMX">Ciudad de México</option>
+                    <option value="MOR">Morelos</option>
+                    <option value="XXX">Otro...</option>
+                </select>
+            </div>
         </div>
-        <label for="basic-url">CURP</label>
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" aria-describedby="basic-addon3" placeholder="Ej. GOBJ990409HDFNSR06">
-        </div>
+        <div class="col-md-3">
+            <h4>&nbsp;</h4>
+            <label for="basic-url">Código Postal</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" aria-describedby="basic-addon3" placeholder="Ej. 06300">
+            </div>
+            <label for="basic-url">Referencias</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" aria-describedby="basic-addon3" placeholder="Ej. Puerta azul">
+            </div>
+            <label for="basic-url">Teléfono de contacto</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" aria-describedby="basic-addon3" placeholder="Ej. (55) 6709 2381">
+            </div>
         </div>
     </div>
       <?php echo "<!-- Add -->

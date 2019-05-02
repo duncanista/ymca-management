@@ -8,13 +8,13 @@
                         </a>
                   </li>
                   <li class="nav-item">
-                        <a class="nav-link <?php if ($sidebar_students) echo "active"; ?>" href="./students">
+                        <a class="nav-link <?php if ($sidebar_students) echo "active"; ?>" href="<?=$url?>/students">
                               <span data-feather="book-open"><?php if ($sidebar_students) echo "(current)"; ?></span>
                               Alumnos
                         </a>
                   </li>
                   <li class="nav-item">
-                        <a class="nav-link" href="./socio-economic-study">
+                        <a class="nav-link" href="<?=$url?>/socio-economic-study">
                               <span data-feather="file-text"></span>
                               E. Socioeconómico
                         </a>
@@ -38,19 +38,19 @@
                         <span>Alumno</span>
                   </h8>
                   <li class="nav-item">
-                        <a class="nav-link" href="#" data-toggle="modal" data-target="#addModal">
+                        <a class="nav-link" href="<?=$url?>/students/add">
                               <span data-feather="file-text"></span>
                               Dar de alta alumno
                         </a>
                   </li>
                   <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="<?=$url?>/students">
                               <span data-feather="file-text"></span>
                               Modificar datos alumno
                         </a>
                   </li>
                   <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="<?=$url?>/students">
                               <span data-feather="file-text"></span>
                               Borrar registro alumno
                         </a>

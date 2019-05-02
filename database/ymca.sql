@@ -31,7 +31,7 @@ CREATE TABLE program(
     PRIMARY KEY (idProgram)
 );
 
-CREATE TABLE statusTypes(
+CREATE TABLE status_types(
     idStatus INT NOT NULL,
     name VARCHAR(50),
 
@@ -87,7 +87,7 @@ CREATE TABLE status_student(
 
     PRIMARY KEY (idStudent, studentStatus),
     FOREIGN KEY (idStudent) REFERENCES student(idStudent),
-    FOREIGN KEY (studentStatus) REFERENCES statusTypes(idStatus)
+    FOREIGN KEY (studentStatus) REFERENCES status_types(idStatus)
 );
 
 CREATE TABLE address(
