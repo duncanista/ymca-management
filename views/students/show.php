@@ -31,7 +31,6 @@
                 <?php
                     $students = new Student();
                     $result = selectStudents();
-                    $result = selectAll("student");
                     $students->displayAllStudents($result);
                 ?>
             </tbody>
