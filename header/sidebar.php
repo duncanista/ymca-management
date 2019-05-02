@@ -2,7 +2,7 @@
       <div class="sidebar-sticky">
             <ul class="nav flex-column">
                   <li class="nav-item">
-                        <a class="nav-link <?php if ($home) echo "active"; ?>" href="./home">
+                        <a class="nav-link <?php if ($home) echo "active"; ?>" href="<?=$url?>/home">
                               <span data-feather="home"></span>
                               Inicio <span class="sr-only"><?php if ($home) echo "(current)"; ?></span>
                         </a>

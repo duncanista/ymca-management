@@ -110,4 +110,5 @@ $('.update_form').submit(function (event) {
     });
 });
 
+
 </script>

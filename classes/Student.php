@@ -173,6 +173,7 @@ class Student{
                                     ¿Estás seguro que quieres borrar este alumno?
                               </div>
                               <div class='modal-footer'>
+                                    <input type='hidden' value='$id' class='delete-id'>
                                     <button type='button' class='btn btn-secondary btn-sm' data-dismiss='modal'>Cambio de planes</button>
                                     <button type='button' class='btn btn-danger btn-sm delete'>Borrar alumno</button>
                               </div>
