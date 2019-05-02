@@ -9,7 +9,6 @@ CREATE TABLE student(
     name VARCHAR(50),
     lastname VARCHAR(100),
     birthdate DATE,
-    birthplace CHAR(3),
     curp VARCHAR(18),
     address INT NOT NULL,
 

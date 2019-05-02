@@ -8,8 +8,8 @@
                         </a>
                   </li>
                   <li class="nav-item">
-                        <a class="nav-link <?php if ($students) echo "active"; ?>" href="./students">
-                              <span data-feather="book-open"><?php if ($students) echo "(current)"; ?></span>
+                        <a class="nav-link <?php if ($sidebar_students) echo "active"; ?>" href="./students">
+                              <span data-feather="book-open"><?php if ($sidebar_students) echo "(current)"; ?></span>
                               Alumnos
                         </a>
                   </li>

@@ -8,5 +8,9 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 RewriteRule ^home$ index.php [L,NC]
 RewriteRule ^users$ users.php [L,NC]
+
 RewriteRule ^students$ students.php [L,NC]
+RewriteRule ^students/add$ students.php?action=add [L,NC]
+
+
 RewriteRule ^socio-economic-study$ studies.php [L,NC]

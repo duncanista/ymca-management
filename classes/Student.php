@@ -8,10 +8,10 @@ class Student{
     }
 
     public function displayAllStudents($result){
-        $fields = array("idStudent", "name", "lastname", "birthdate", "birthplace", "curp", "address");
+        $fields = array("idStudent", "name", "lastname", "birthdate", "curp", "birthplace", "status");
         while ($row = $result->fetch_assoc()) {
             echo  "<tr>";
-            for ($i = 0; $i < count($fields)-1; $i++) {
+            for ($i = 0; $i < count($fields); $i++) {
                 echo "<td>" . $row[$fields[$i]]. "</td>";
             }
             $id = $row["idStudent"];
