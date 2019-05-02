@@ -15,7 +15,7 @@ class Student{
                   if($fields[$i] != "status"){
                         echo "<td>" . $row[$fields[$i]]. "</td>";
                   }else{
-                        $status = $row[$fields[$i]];
+                        $status = $row[$fields[6]];
                         $class = "info";
                         switch ($status):
                               case "Registrado":
@@ -42,7 +42,7 @@ class Student{
             $status = $row["status"];
             echo "
             <td>
-                  
+
                   <a href='#' class='badge badge-warning' data-toggle='modal' data-target='#modifyModal$id'>Modificar</a>
                   <a href='#' class='badge badge-danger' data-toggle='modal' data-target='#deleteModal$id'>Borrar</a>
             </td>
@@ -60,7 +60,7 @@ class Student{
                               <div class='modal-body'>
                                     <form class='' action='' method='post'>
                                     <input name='id' type='hidden' class='form-control' aria-describedby='basic-addon3' value='$id'>
-      
+
                                     <label for='basic-url'>Nombre</label>
                                     <div class='input-group mb-3'>
                                           <input name='name' type='text' class='form-control' aria-describedby='basic-addon3'
@@ -104,7 +104,7 @@ class Student{
                                     <input type='submit' class='btn btn-principal btn-sm' name='' value='Guardar Cambios'>
                               </div>
                               </form>
-      
+
                         </div>
                         </div>
                   </div>
